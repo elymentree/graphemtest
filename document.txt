@@ -1,1 +1,21 @@
-THIS IS A TEST
+Transition / To be handed to team:
+
+1. I focused on properly designing the architecture of the database, with relationships and constraints
+2. I have spent time and completed writing the migration tables so that anyone can re-create and/or easily improve them
+3. For me, a proper database structure is already half of the battle won. Your backend will always be dependent on this. Re-writing code is easy, re-structuring a database is difficult and tedious. Always focus on proper architecture.
+4. TODO: The create teams page only allows the assignment of heroes when creating a new Team. Fetch the Team data and display this on a list above the form.
+5. TODO: The user should be able to select an existing Team and modify the Hero assignment, to add and delete Heroes from the Team.
+6. TODO: Form validation is general, please handle proper error validation, eg: displaying the error next to the element, defining parameters properly like numeric, min, max etc
+7. TODO: One of the requirement is to find a way to calculate a superhero’s combat power. I simply wrote a condition in the query based on the side and ability column to calculate the value, this can be found in the TeamController@details query. Write a proper class and create a function to handle the algorithm, pass the Hero data to this function and use the combination of many different parameters and column attributes. This can even be extended based on the Team they are on and the other Heroes they are with.
+8. TODO: The JS fetch to show the list of Heroes when clicking the VIEW DETAILS button in the Teams list and their attributes need to have a proper view. Create a view, load the data and show the elements.
+
+Recommendations:
+
+1. Q: What would you do differently? On the database side of the app, I would expand on the attributes for Heroes and Teams. A Hero for example can have an attribute like weaknesses, speed, movement etc. This will enable the system to have many other features like predicting the outcome of a battle, the efficiency of the Team based on Hero combination etc. I would eliminate the ‘side’ column in the Teams table, rather I would create a condition that determines the ‘side’ of the Team based on how many light or dark side heroes are in it.
+2. As for the requirement and design, I would make the Hero and Team editable, give them interchangeable parts. I would create the proper links and shortcuts to processes and operations, for example, if I am in the Team view, I should be able to add a new Hero from the page. I will write a proper class that have methods and functions in calculating different logic. EG: combat power generator, battle outcome predictor, Team efficiency calculator and many other logic.
+3. What would I add to the points below:
+    1. Controller: Setup proper form validation, as stated above, define data type, limits like min and max etc. Also, write the proper and standard CRUD operations, setup sessions and authentication
+    2. Model: Define fillable data, setup data relationships for Eloquent (one to one, one to many etc)
+    3. View: Handle proper input validation in JS, do not mix logic in views, follow blade conventions and rules
+    4. Code: Follow a coding standard like PSR-2, use and follow proper MVC pattern. Have a standard casing pattern (eg: camel casing). Use variable and function names properly and accordingly, for example instead of using $x, use a name that states the usage of the variable like $name, $counter, $heroPower etc. Function names should also indicate action so using verbs are helpful (eg: fetchHeroData, or generateAttackPower etc). Write useful comments, proper messages on GIT commits, and a documentation are always vital.
+4. Use factories and seeder data when developing it will make it painless to create test database records. This project need to have a constant flushing and seeding of data to properly write some logic.
